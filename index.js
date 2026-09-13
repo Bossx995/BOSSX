@@ -1241,6 +1241,7 @@ Remove: ${getBotPrefix()}dlsudo <number> অথবা reply করে ${getBotPr
       }
     } else if (command === "ping") {
       await sendOwnerPhotoReply(sock, jid, `⚡aru999+ BXSPEED 00.999
+👑 ${config.OWNER_NAME}`);
     } else if (command === "menu" || command === "help") {
       // Handled above before the mode/admin gate.
       return;
