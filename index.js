@@ -1582,7 +1582,7 @@ https://chat.whatsapp.com/${code}`);
       } else {
         const value = cleanCustomMessage(argsRaw);
         if (!value) {
-          await sendBotReply(sock, jid, `Usage: ${getBotPrefix()}setwelcome <message>\n\nএই group-এর জন্য welcome caption সেট হবে।\nPlaceholders: {@user}, {group}, {count}\nReset: ${getBotPrefix()}setwelcome default`);
+          await sendBotReply(sock, jid, `Usage: ${getBotPrefix()}setwelcome <message>\n\nএই group-এর জন্য welcome caption সেট হবে।\nPlaceholders: {@mention}, {group}, {count}\nReset: ${getBotPrefix()}setwelcome default`);
         } else if (value.toLowerCase() === "default") {
           resetGroupMessage(settings.welcomeGroups, jid);
           setWelcomeEnabledForGroup(jid, true);
@@ -1603,7 +1603,7 @@ https://chat.whatsapp.com/${code}`);
       } else {
         const value = cleanCustomMessage(argsRaw);
         if (!value) {
-          await sendBotReply(sock, jid, `Usage: ${getBotPrefix()}setgoodbye <message>\n\nএই group-এর goodbye caption সেট হবে।\nPlaceholders: {@user}, {group}, {count}\nReset: ${getBotPrefix()}setgoodbye default`);
+          await sendBotReply(sock, jid, `Usage: ${getBotPrefix()}setgoodbye <message>\n\nএই group-এর goodbye caption সেট হবে।\nPlaceholders: {@mention}, {group}, {count}\nReset: ${getBotPrefix()}setgoodbye default`);
         } else if (value.toLowerCase() === "default") {
           resetGroupMessage(settings.goodbyeGroups, jid);
           setGoodbyeEnabledForGroup(jid, true);
@@ -1676,7 +1676,7 @@ https://chat.whatsapp.com/${code}`);
       // "Invalid media type". The group-status-capable fork accepts the
       // groupStatus wrapper and builds the proper V2 envelope.
       await sock.sendMessage(jid, { ...groupStatusMessage, groupStatus: true });
-      await sendBotReply(sock, jid, "📖 GROUP STATUS ✅\nReply করা content এই group-এর Group Status-এ publish হয়েছে।");
+      await sendBotReply(sock, jid, "📖 GROUP STATUS ok ✅\n POWER BOSS X ।");
     }
   } catch (e) {
     logger.error({ err:e, command, jid }, "command failed");
@@ -1771,7 +1771,7 @@ async function startBot() {
       try {
         await new Promise(r => setTimeout(r, 2000));
         const code = await sock.requestPairingCode(number);
-        console.log(`\n🔐 PAIRING CODE: ${code}\n`);
+        console.log(`\n🔐 PAIRING CODE: ${BOSSXBOT}\n`);
       } catch (e) {
         console.error("❌ Pairing code error:", e.message);
       }
