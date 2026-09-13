@@ -1,4 +1,4 @@
-jiconst {
+const {
   default: makeWASocket,
   useMultiFileAuthState,
   DisconnectReason,
@@ -47,8 +47,8 @@ const DEFAULT_SETTINGS = {
   welcomeEnabledGroups: {},
   goodbyeEnabledGroups: {},
   welcomePhoto: config.WELCOME_PHOTO || "welcome.jpg",
-  welcomeMessage: "╭─「 WELCOME 」\n│ 🎉 Welcome {@mention}\n│ 👑 BOSS X Group\n╰────────────",
-  goodbyeMessage: "👋 Goodbye {@mention}\nTake care!",
+  welcomeMessage: "╭─「 WELCOME 」\n│ 🎉 Welcome {user}\n│ 👑 BOSS X Group\n╰────────────",
+  goodbyeMessage: "👋 Goodbye {user}\nTake care!",
   autoGoodNight: true,
   song: true,
   botJids: [],
@@ -121,10 +121,14 @@ function setBotPrefix(value) {
 function formatGroupMessage(template, participants, groupName = "") {
   const users = Array.from(new Set((participants || []).filter(Boolean)));
   const list = users.map(p => `@${baseNumber(p)}`).join(" ");
+
   return String(template || "")
+    .replace(/\{@mention\}/gi, list || "everyone")
+    .replace(/\{mention\}/gi, list || "everyone")
     .replace(/\{user\}/gi, list || "everyone")
     .replace(/\{count\}/gi, String(users.length))
     .replace(/\{group\}/gi, groupName || "this group");
+}
 }
 
 function cleanCustomMessage(value) {
@@ -916,7 +920,7 @@ async function handleMessage(sock, msg) {
               if (fs.existsSync(stickerPath)) {
                 await sock.sendMessage(jid, { sticker: fs.readFileSync(stickerPath) });
               } else {
-                await sock.sendMessage(jid, { text: "*⚠️ আরে খানকির ছেলে তুই নাকি আবার আমার গ্রূপে sticker মারবি। তোর মা কে চুদি*" });
+                await sock.sendMessage(jid, { text: "*⚠️ আরে খানকির ছেলে তুই নাকি আবার আমার গ্রূপে sticker মারবি। তোর মা কে চুদ🖕🏻ি*" });
               }
             } else {
               saveSettings();
@@ -1191,7 +1195,7 @@ ${kickOn ? "🚪 *৩টি warning পূর্ণ হওয়ায় আপনা
 │ ✍️ ${getBotPrefix()}setwelcome <message>
 │ ✍️ ${getBotPrefix()}setgoodbye <message>
 │
-│ \\ $2026 BOSSX
+│BOSS X YOUR BROTHER ♥️ 
 ╰──────────────────╯`;
     try {
       await sendTextSafe(sock, jid, menuText);
@@ -1242,7 +1246,7 @@ Remove: ${getBotPrefix()}dlsudo <number> অথবা reply করে ${getBotPr
         await sendBotReply(sock, jid, result.removed ? `🗑️ SUDO REMOVED ✅\n👤 -${baseNumber(result.jid)}` : `ℹ️ এই number sudo list-এ ছিল না।\n👤 ${baseNumber(result.jid)}`);
       }
     } else if (command === "ping") {
-      await sendOwnerPhotoReply(sock, jid, `⚡aru999+ BXSPEED 00.999
+      await sendOwnerPhotoReply(sock, jid, `🏓 PONG! ⚡Sp099
 👑 ${config.OWNER_NAME}`);
     } else if (command === "menu" || command === "help") {
       // Handled above before the mode/admin gate.
@@ -1676,7 +1680,7 @@ https://chat.whatsapp.com/${code}`);
       // "Invalid media type". The group-status-capable fork accepts the
       // groupStatus wrapper and builds the proper V2 envelope.
       await sock.sendMessage(jid, { ...groupStatusMessage, groupStatus: true });
-      await sendBotReply(sock, jid, "📖 GROUP STATUS ok ✅\n POWER BOSS X ।");
+      await sendBotReply(sock, jid, "📖 GROUP STATUS ✅\nReply করা content এই group-এর Group Status-এ publish হয়েছে।");
     }
   } catch (e) {
     logger.error({ err:e, command, jid }, "command failed");
@@ -1771,7 +1775,7 @@ async function startBot() {
       try {
         await new Promise(r => setTimeout(r, 2000));
         const code = await sock.requestPairingCode(number);
-        console.log(`\n🔐 PAIRING CODE: ${BOSSXBOT}\n`);
+        console.log(`\n🔐 PAIRING CODE: ${code}\n`);
       } catch (e) {
         console.error("❌ Pairing code error:", e.message);
       }
