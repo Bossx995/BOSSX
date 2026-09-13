@@ -920,7 +920,7 @@ async function handleMessage(sock, msg) {
               if (fs.existsSync(stickerPath)) {
                 await sock.sendMessage(jid, { sticker: fs.readFileSync(stickerPath) });
               } else {
-                await sock.sendMessage(jid, { text: "*⚠️ আরে খানকির ছেলে তুই নাকি আবার আমার গ্রূপে sticker মারবি। তোর মা কে চুদ🖕🏻ি*" });
+                await sock.sendMessage(jid, { text: "*⚠️ আরে খানকির ছেলে তুই নাকি আবার আমার গ্রূপে sticker মারবি। তোর মা কে চুদি🖕🏻*" });
               }
             } else {
               saveSettings();
