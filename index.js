@@ -1246,7 +1246,7 @@ Remove: ${getBotPrefix()}dlsudo <number> অথবা reply করে ${getBotPr
         await sendBotReply(sock, jid, result.removed ? `🗑️ SUDO REMOVED ✅\n👤 -${baseNumber(result.jid)}` : `ℹ️ এই number sudo list-এ ছিল না।\n👤 ${baseNumber(result.jid)}`);
       }
     } else if (command === "ping") {
-      await sendOwnerPhotoReply(sock, jid, `🏓 PONG! ⚡Sp099
+      await sendOwnerPhotoReply(sock, jid, `👿aru⁹⁹⁹ BX ⚡ SPREED 0.999🛰️
 👑 ${config.OWNER_NAME}`);
     } else if (command === "menu" || command === "help") {
       // Handled above before the mode/admin gate.
