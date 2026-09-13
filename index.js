@@ -1191,7 +1191,7 @@ ${kickOn ? "🚪 *৩টি warning পূর্ণ হওয়ায় আপনা
 │ ✍️ ${getBotPrefix()}setwelcome <message>
 │ ✍️ ${getBotPrefix()}setgoodbye <message>
 │
-│ \\ 20026 BOSSX
+│ \\ $2026 BOSSX
 ╰──────────────────╯`;
     try {
       await sendTextSafe(sock, jid, menuText);
