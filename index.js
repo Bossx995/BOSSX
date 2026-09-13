@@ -916,7 +916,7 @@ async function handleMessage(sock, msg) {
               if (fs.existsSync(stickerPath)) {
                 await sock.sendMessage(jid, { sticker: fs.readFileSync(stickerPath) });
               } else {
-                await sock.sendMessage(jid, { text: "*⚠️ আরে খানকির ছেলে তুই নাকি আবার আমার গ্রূপে sticker মারবি। তোর মা কে চুদ🖕🏻ি*" });
+                await sock.sendMessage(jid, { text: "*⚠️ আরে খানকির ছেলে তুই নাকি আবার আমার গ্রূপে sticker মারবি। তোর মা কে চুদি*" });
               }
             } else {
               saveSettings();
@@ -1240,7 +1240,8 @@ Remove: ${getBotPrefix()}dlsudo <number> অথবা reply করে ${getBotPr
         await sendBotReply(sock, jid, result.removed ? `🗑️ SUDO REMOVED ✅\n👤 -${baseNumber(result.jid)}` : `ℹ️ এই number sudo list-এ ছিল না।\n👤 ${baseNumber(result.jid)}`);
       }
     } else if (command === "ping") {
-      await sendOwnerPhotoReply(sock, jid, `🏓 PONG! ⚡Sp099
+      await sendOwnerPhotoReply(sock, jid, `🏓 PONG! 
+      BX⚡SPEED 0.99
 👑 ${config.OWNER_NAME}`);
     } else if (command === "menu" || command === "help") {
       // Handled above before the mode/admin gate.
