@@ -1190,6 +1190,8 @@ ${kickOn ? "🚪 *৩টি warning পূর্ণ হওয়ায় আপনা
 │ 🗑️ ${getBotPrefix()}dlsudo <number> / reply
 │ ✍️ ${getBotPrefix()}setwelcome <message>
 │ ✍️ ${getBotPrefix()}setgoodbye <message>
+│
+│ \\ 20026 BOSSX
 ╰──────────────────╯`;
     try {
       await sendTextSafe(sock, jid, menuText);
