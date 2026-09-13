@@ -1190,6 +1190,7 @@ ${kickOn ? "🚪 *৩টি warning পূর্ণ হওয়ায় আপনা
 │ 🗑️ ${getBotPrefix()}dlsudo <number> / reply
 │ ✍️ ${getBotPrefix()}setwelcome <message>
 │ ✍️ ${getBotPrefix()}setgoodbye <message>
+│ > 2026 BOSS X
 ╰──────────────────╯`;
     try {
       await sendTextSafe(sock, jid, menuText);
@@ -1240,7 +1241,8 @@ Remove: ${getBotPrefix()}dlsudo <number> অথবা reply করে ${getBotPr
         await sendBotReply(sock, jid, result.removed ? `🗑️ SUDO REMOVED ✅\n👤 -${baseNumber(result.jid)}` : `ℹ️ এই number sudo list-এ ছিল না।\n👤 ${baseNumber(result.jid)}`);
       }
     } else if (command === "ping") {
-      await sendOwnerPhotoReply(sock, jid, `⚡aru999+ BX SPEED 00.999`
+      await sendOwnerPhotoReply(sock, jid, `⚡aru999+ BX SPEED 00.999🤫
+👑 ${config.OWNER_NAME}`);
     } else if (command === "menu" || command === "help") {
       // Handled above before the mode/admin gate.
       return;
