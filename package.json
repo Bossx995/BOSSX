@@ -1,0 +1,20 @@
+{
+  "name": "boss-x-whatsapp-bot",
+  "version": "1.5.13",
+  "description": "Boss X WhatsApp bot - reliable bot-admin detection and group anti-link/admin controls",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@nuiisweety/baileys": "0.1.21",
+    "pino": "^9.7.0",
+    "qrcode-terminal": "^0.12.0",
+    "@distube/ytdl-core": "^4.16.12",
+    "yt-search": "^2.13.1",
+    "@adiwajshing/keyed-db": "0.2.4"
+  }
+}
