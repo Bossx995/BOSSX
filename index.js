@@ -1125,7 +1125,7 @@ async function handleMessage(sock, msg) {
   // Optional automatic reactions. Never react to our own messages.
   if (!isSelfMessage && settings.autoReaction) {
     try {
-      const reactionPool = ["❤️", "🔥", "😂", "👍", "😎"];
+      const reactionPool = ["❤️", "🔥", "😂", "👍", "😎", "⚡", "🎀", "😙", "💋", "🙂", "🫶🏻", "🥺", "🫂", "✨", "🎉", "😲", "👀", "🌺", "😇", "👿", "👣", "💦"];
       const emoji = reactionPool[Math.floor(Math.random() * reactionPool.length)];
       await sock.sendMessage(jid, { react: { text: emoji, key: msg.key } });
     } catch (e) {
@@ -1886,7 +1886,7 @@ ${getBotPrefix()}antistatus kick on/off`);
         if (!participants.length) return;
         const mentions = participants;
         let body = "╭━━━〔 📢 TAG ALL 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🔹" : "🔸"} @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
-        if (command === "htag") body = "╭━━━〔 🔔 H-TAG 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🔹" : "🔸"} @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
+        if (command === "htag") body = "╭━━━〔 🔔 H-TAG 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🔹" : "🙂" : "🪀"} @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
         if (command === "totag") {
           const ctx = getContextInfo(msg);
           if (!ctx?.quotedMessage) {
@@ -2105,11 +2105,10 @@ https://chat.whatsapp.com/${code}`);
       // treats the wrapper as an unknown media object and throws
       // "Invalid media type". The group-status-capable fork accepts the
       // groupStatus wrapper and builds the proper V2 envelope.
-      await sock.sendMessage(jid, { ...groupStatusMessage, groupStatus: true });
-      await sendOwnerPhotoReply(
-        sock,
-        jid,
-        `📖 BOSS-X GCSTORY\n\n✅ GROUP STATUS PUBLISHED\n📌 Reply করা content এই group-এর Group Status-এ publish হয়েছে।\n👑 ${config.OWNER_NAME}`
+      await sock.sendMessage(jid, {
+  image: { url: ownerPhoto },
+  caption: `📖 BOSS-X GCSTORY\n\n✅ GROUP STATUS PUBLISHED`
+});\n👑 ${config.OWNER_NAME}`
       );
     }
   } catch (e) {
