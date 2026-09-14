@@ -1885,9 +1885,21 @@ ${getBotPrefix()}antistatus kick on/off`);
         const participants = (metadata.participants || []).map(p => p.id).filter(Boolean);
         if (!participants.length) return;
         const mentions = participants;
-        let body = "╭━━━〔 📢 TAG ALL 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🫂" : "🎀"} @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
-        if (command === "htag") body = "╭━━━〔 🔔 H-TAG 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🫠" : "🙂" } @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
-        if (command === "totag") {
+        const mentions = participants;
+
+let body = `╭━━〔 📢 TAG ALL 〕━━╮
+┃
+${mentions.map((p, i) => `${i % 2 ? "🎀" : "😘"} @${baseNumber(p)}`).join("\n")}
+┃
+╰━━━━━━━━━━━━━━╯`;
+
+if (command === "htag") {
+    body = `╭━━〔 🔔 H-TAG 〕━━╮
+┃
+${mentions.map((p, i) => `${i % 2 ? "♥️" : "🫠"} @${baseNumber(p)}`).join("\n")}
+┃
+╰━━━━━━━━━━━━━━╯`;
+}
           const ctx = getContextInfo(msg);
           if (!ctx?.quotedMessage) {
             await sendBotReply(sock, jid, `❌ আগে কোনো message reply/quote করে ${getBotPrefix()}totag দিন।`);
