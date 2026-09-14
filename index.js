@@ -1885,8 +1885,8 @@ ${getBotPrefix()}antistatus kick on/off`);
         const participants = (metadata.participants || []).map(p => p.id).filter(Boolean);
         if (!participants.length) return;
         const mentions = participants;
-        let body = "╭━━━〔 📢 TAG ALL 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🔹" : "🔸"} @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
-        if (command === "htag") body = "╭━━━〔 🔔 H-TAG 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🔹" : "🙂" : "🪀"} @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
+        let body = "╭━━━〔 📢 TAG ALL 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🫂" : "🎀"} @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
+        if (command === "htag") body = "╭━━━〔 🔔 H-TAG 〕━━━╮\n\n" + mentions.map((p, i) => `${i % 2 ? "🫠" : "🙂" } @${baseNumber(p)}`).join("\n") + "\n\n╰━━━━━━━━━━━━━━╯";
         if (command === "totag") {
           const ctx = getContextInfo(msg);
           if (!ctx?.quotedMessage) {
