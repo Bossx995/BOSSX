@@ -1337,12 +1337,12 @@ ${kickOn ? "🚪 *৩টি warning পূর্ণ হওয়ায় আপনা
         saveSettings();
 
         await sock.sendMessage(jid, {
-          text: `🚫 ANTI-LINK LIMIT EXCEEDED\n@${baseNumber(sender)} ৩টির বেশি link পাঠিয়েছে।\n🗑️ Link message: ${deleted ? "Deleted ✅" : "Delete failed ⚠️"}\n🔒 Group: ${closed ? "Closed 🔒" : "Close failed ⚠️"}\n🥾 Member: ${kicked ? "Removed ✅" : "Remove failed ⚠️"}`,
+          text: `🚫 ANTI-LINK LIMIT EXCEEDED\n@${baseNumber(sender)} ৩য় link পাঠিয়েছে group বন্ধ করে খানকির ছেলের remove করা হলো আর link পাঠাবি তোর মাকে চদি।\n🗑️ Link message: ${deleted ? "Deleted ✅" : "Delete failed ⚠️"}\n🔒 Group: ${closed ? "Closed 🔒" : "Close failed ⚠️"}\n🥾 Member: ${kicked ? "Removed ✅" : "Remove failed ⚠️"}`,
           mentions: [sender]
         });
       } else {
         await sock.sendMessage(jid, {
-          text: `⚠️ ANTI-LINK\n@${baseNumber(sender)}-এর link delete করা হয়েছে।\n📊 Link count: ${groupCounts[key]}/2\n🚨 ৩য় link পাঠালে group বন্ধ করে আপনাকে remove করা হবে।`,
+          text: `⚠️ ANTI-LINK\n@${baseNumber(sender)}-এই খানকির ছেলের link delete করা হয়েছে।\n📊 Link count: ${groupCounts[key]}/2\n🚨 ৩য় link পাঠালে group বন্ধ করে খানকির ছেলের remove করা হবে আর link পাঠাবি তোর মাকে চদি। ।`,
           mentions: [sender]
         });
       }
@@ -1649,12 +1649,7 @@ Remove: ${getBotPrefix()}dlsudo <number> অথবা reply করে ${getBotPr
     } else if (command === "ping") {
       // .ping is a BASIC command and intentionally works in both
       // private chats and groups. It must never show the group-only warning.
-      const pingCaption = `⚡ BOSS X PING
-
-🏓 PONG!
-⚡ Speed: 0.42s
-🤖 Bot: Online
-🟢 Server: Active
+      const pingCaption = `⚡𝐁𝐗 𝐒𝐏𝐄𝐄𝐃 𝟎.𝟗𝟗𝐒 🤖 𝐁𝐨𝐭: 𝐎𝐧𝐥𝐢𝐧𝐞
 👑 ${config.OWNER_NAME}`;
       const configuredPhoto = String(config.OWNER_PHOTO || "owner.jpg");
       const photoPath = path.isAbsolute(configuredPhoto)
