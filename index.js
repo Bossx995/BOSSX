@@ -1887,24 +1887,42 @@ ${getBotPrefix()}antistatus kick on/off`);
         const mentions = participants;
         const mentions = participants;
 
-let body = `╭━━〔 📢 TAG ALL 〕━━╮
+python - <<'PY'
+p="index.js"
+
+with open(p,"r",encoding="utf-8") as f:
+    s=f.read()
+
+a=s.find('let body = "')
+b=s.find('if (command === "totag")',a)
+
+if a == -1 or b == -1:
+    print("❌ TAG অংশ পাওয়া যায়নি")
+    exit()
+
+new=r'''let body = `╭━━〔 📢 TAG ALL 〕━━╮
 ┃
-${mentions.map((p, i) => `${i % 2 ? "🎀" : "😘"} @${baseNumber(p)}`).join("\n")}
+${mentions.map((p, i) => `${i % 2 ? "⚡" : "🌱"} @${baseNumber(p)}`).join("\n")}
 ┃
 ╰━━━━━━━━━━━━━━╯`;
 
-if (command === "htag") {
-    body = `╭━━〔 🔔 H-TAG 〕━━╮
+        if (command === "htag") {
+            body = `╭━━〔 🔔 H-TAG 〕━━╮
 ┃
-${mentions.map((p, i) => `${i % 2 ? "♥️" : "🫠"} @${baseNumber(p)}`).join("\n")}
+${mentions.map((p, i) => `${i % 2 ? "🫂" : "🟡"} @${baseNumber(p)}`).join("\n")}
 ┃
 ╰━━━━━━━━━━━━━━╯`;
-}
-          const ctx = getContextInfo(msg);
-          if (!ctx?.quotedMessage) {
-            await sendBotReply(sock, jid, `❌ আগে কোনো message reply/quote করে ${getBotPrefix()}totag দিন।`);
-            return;
-          }
+        }
+
+        '''
+
+s=s[:a]+new+s[b:]
+
+with open(p,"w",encoding="utf-8") as f:
+    f.write(s)
+
+print("✅ TAG/HTAG FIXED")
+PY
           const quoted = { key: { remoteJid: jid, id: ctx.stanzaId, participant: ctx.participant }, message: ctx.quotedMessage };
           const quotedText = getText(quoted);
           body = (quotedText ? `💬 ${quotedText}\n\n` : "💬 Message\n\n") + mentions.map(p => `@${baseNumber(p)}`).join(" ");
